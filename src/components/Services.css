@@ -1,0 +1,145 @@
+.service-section {
+    text-align: center;
+    position: relative;
+}
+
+.services-overlay {
+    background-color: rgba(255, 255, 255, 0.85);
+    /* 50% transparent overlay */
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 2rem;
+}
+
+.small-heading {
+    padding-left: 8%;
+    text-align: left;
+    color: #007bff;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.main-heading {
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1a2b44;
+    margin-bottom: 2rem;
+}
+
+/* Swiper container */
+.service-slider {
+    height: 90%;
+    margin: auto;
+    margin-top: 60px;
+    position: relative;
+    padding-bottom: 50px;
+    /* Space for arrows */
+}
+
+/* Swiper slides */
+.service-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 1.5s ease-in-out;
+}
+
+/* Elevate the middle slides */
+.service-slide.elevated {
+    transform: translateY(-20px) !important;
+
+    /* Force elevation */
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    min-width: 100%;
+    height: 300px;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.service-info {
+    position: absolute;
+    bottom: 30px;
+    left: 42%;
+    transform: translateX(-45%);
+    text-align: center;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    z-index: 200;
+    align-items: center;
+}
+
+.service-text {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+}
+
+.service-text h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.blue-line {
+    width: 60px;
+    height: 4px;
+    background-color: #00aaff;
+    margin: 10px auto 0 auto;
+}
+
+.image-container:hover .image-overlay {
+    opacity: 10;
+}
+
+
+.image-container:hover img {
+    transform: scale(1.03);
+    /* Optional zoom effect on hover */
+}
+
+/* Image styling */
+.service-slide img {
+    width: 380px;
+    height: 450px;
+
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+}
+
+/* Navigation arrows */
+.swiper-button-prev,
+.swiper-button-next {
+    visibility: hidden;
+}
+
+.swiper-button-prev {
+    left: 45%;
+}
+
+.swiper-button-next {
+    right: 45%;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    color: #ff7f50;
+}
