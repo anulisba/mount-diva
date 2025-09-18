@@ -9,20 +9,14 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import bgImg from '../assets/1u.png';
-import t1 from '../assets/bg.jpg';
-import t2 from '../assets/bg2.jpg';
-import t3 from '../assets/bg1.jpg';
-import t4 from '../assets/bg3.jpg';
-import t5 from '../assets/bg1.jpg';
-import t6 from '../assets/aboutus1.jpg';
 const OurServices = () => {
-    const serviceImages = [t1, t2, t3, t4, t5, t6];
+    const serviceImages = ['https://res.cloudinary.com/dpo91btlc/image/upload/v1758211588/Untitled_design_7_kdxdg3.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211584/Untitled_design_6_mxnxvp.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211584/Untitled_design_5_lrkizr.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211246/Untitled_design_2_i4l5j7.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211245/Untitled_design_3_nlukvw.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211246/Untitled_design_1_md5qqz.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211245/Untitled_design_4_xvcpez.png'];
     const [activeIndex, setActiveIndex] = useState(0);
     return (
         <section id="service" className="service-section" style={{ backgroundImage: `url(${bgImg})` }}>
             <div className="services-overlay">
-                <h4 className="small-heading">Our Services</h4>
-                <h2 className="main-heading">Delivering Excellence in Every Service</h2>
+                <span className="about-subtitle">About Us</span>
+                <h2 className="about-heading">Excellence You Can Trust</h2>
 
                 <div className="service-name-line"></div>
                 <Swiper
@@ -44,14 +38,14 @@ const OurServices = () => {
 
                     {serviceImages.map((img, index) => {
                         const isElevated = index === (activeIndex + 1) % serviceImages.length;
-                        const serviceNames = ["Abhishek Oommen", "Anix Samuel", "Paulwin Seby", "Abhinanth Mohan", "Rahul G Nair", "Sunny Stephan"];
+                        const serviceNames = ["Management Services", "AMC services", "Painting & Decorating", "Annual Maintenance Contracts", "Maintenance on a Call-Out Basis", "Glass works and Aluminium works", "Interior Designing"];
 
 
                         return (
                             <SwiperSlide key={index} style={{ top: "30px" }} className={`service-slide ${isElevated ? "elevated" : ""}`}>
                                 <div className="image-container">
                                     <img src={img} alt="service Performing" />
-                                    <div className="image-overlay"></div>
+
                                     <div className="service-info">
 
                                         <div className="service-text">

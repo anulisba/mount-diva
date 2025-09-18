@@ -1,15 +1,12 @@
 .service-section {
-    text-align: center;
     position: relative;
 }
 
 .services-overlay {
     background-color: rgba(255, 255, 255, 0.85);
-    /* 50% transparent overlay */
     width: 100%;
     height: 100%;
-    text-align: center;
-    padding: 2rem;
+    padding: 100px;
 }
 
 .small-heading {
@@ -50,17 +47,17 @@
 /* Elevate the middle slides */
 .service-slide.elevated {
     transform: translateY(-20px) !important;
-
-    /* Force elevation */
 }
 
+/* Square container for images */
 .image-container {
     position: relative;
     overflow: hidden;
-    min-width: 100%;
-    height: 300px;
+    width: 100%;
+
 }
 
+/* Image overlay */
 .image-overlay {
     position: absolute;
     top: 0;
@@ -70,32 +67,33 @@
     background: rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
     z-index: 1000;
+    opacity: 0;
 }
 
+/* Service info */
 .service-info {
     position: absolute;
     bottom: 30px;
-    left: 42%;
-    transform: translateX(-45%);
-    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
     color: white;
     padding: 8px 12px;
     border-radius: 5px;
     z-index: 200;
-    align-items: center;
+    text-align: center;
 }
 
 .service-text {
     position: absolute;
     bottom: 30px;
+    text-align: center;
     left: 50%;
     transform: translateX(-50%);
-    text-align: center;
     color: white;
 }
 
 .service-text h3 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -106,23 +104,26 @@
     margin: 10px auto 0 auto;
 }
 
+/* Hover effects */
 .image-container:hover .image-overlay {
-    opacity: 10;
+    opacity: 1;
 }
-
 
 .image-container:hover img {
     transform: scale(1.03);
-    /* Optional zoom effect on hover */
+    /* Optional zoom effect */
 }
 
 /* Image styling */
 .service-slide img {
-    width: 380px;
-    height: 450px;
-
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    /* enforce square */
     object-fit: cover;
+    /* crop without distortion */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
 /* Navigation arrows */
@@ -142,4 +143,37 @@
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
     color: #ff7f50;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .services-overlay {
+        padding: 50px;
+    }
+
+    .service-slider {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-overlay {
+        padding: 30px;
+    }
+
+    .service-text h3 {
+        font-size: 1.8rem;
+
+    }
+}
+
+@media (max-width: 480px) {
+    .services-overlay {
+        padding: 20px;
+
+    }
+
+    .service-text h3 {
+        font-size: 1.5rem;
+    }
 }

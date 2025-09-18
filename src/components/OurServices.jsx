@@ -2,50 +2,45 @@ import React from 'react';
 import './OurServices.css';
 import { motion } from 'framer-motion';
 import {
-    FaHome,
-    FaBuilding,
-    FaTree,
-    FaPencilRuler,
-    FaShoppingBag,
-    FaGlassMartiniAlt,
-    FaCouch,
-    FaHammer,
-    FaTv,
-    FaPaintRoller
-} from 'react-icons/fa';
+    FaChartLine,
+    FaUserTie,
+    FaBalanceScale,
+    FaHandsHelping,
+    FaDollarSign,
+    FaLightbulb
+} from "react-icons/fa";
 
 const services = [
     {
-        title: 'Interior Design',
-        description: 'Crafting stylish and functional interiors that reflect your personality and purpose.',
-        icon: <FaPaintRoller />
+        title: 'Consistent High Quality',
+        description: 'We ensure top-notch quality in every project, maintaining excellence from start to finish.',
+        icon: <FaChartLine />
     },
     {
-        title: 'Residential Design & Build',
-        description: 'Complete design and construction solutions for your dream home, blending aesthetics with functionality.',
-        icon: <FaHome />
+        title: 'Professionalism',
+        description: 'Our team upholds the highest standards of professionalism in communication, conduct, and delivery.',
+        icon: <FaUserTie />
     },
     {
-        title: 'Design Consultancy',
-        description: 'Expert guidance to refine your vision from concept to execution with tailored solutions.',
-        icon: <FaPencilRuler />
+        title: 'Integrity',
+        description: 'We build trust by being transparent, ethical, and committed to doing the right thing always.',
+        icon: <FaBalanceScale />
     },
     {
-        title: 'Corporate Design & Build',
-        description: 'Creating inspiring workspaces that reflect your brand identity and enhance productivity.',
-        icon: <FaBuilding />
+        title: 'Genuine Customer Care',
+        description: 'Our clients are at the heart of everything we do, ensuring personalized attention and lasting relationships.',
+        icon: <FaHandsHelping />
     },
     {
-        title: 'Landscaping',
-        description: 'Transforming outdoor spaces into serene environments that harmonize with architecture.',
-        icon: <FaTree />
+        title: 'Value for Money',
+        description: 'We deliver services that maximize impact and efficiency, ensuring the best return on investment.',
+        icon: <FaDollarSign />
     },
     {
-        title: 'Renovation Specialist',
-        description: 'Breathing new life into existing spaces with innovative transformation solutions.',
-        icon: <FaHammer />
+        title: 'Innovation',
+        description: 'We embrace creativity and modern solutions to bring fresh, forward-thinking ideas to every project.',
+        icon: <FaLightbulb />
     },
-
 ];
 
 const values = () => {
@@ -53,14 +48,8 @@ const values = () => {
         <section className="our-services-section">
             <div className="our-services-header-padding">
                 <div className="our-services-header">
-                    <div className='our-service-title'>
-                        <h2>Interior Solutions Tailored<br />To You</h2>
-                        <div className="our-service-line-heading" />
-                    </div>
-                    <div className="about-us-line-container">
-                        <div className="about-us-line" />
-                        <span className="about-us-subtitle">OUR SERVICES</span>
-                    </div>
+                    <span className="about-subtitle">Our Values</span>
+                    <h2 className="about-heading">Why People Choose Us</h2>
                 </div>
             </div>
             <div className="our-services-grid-wrapper">
@@ -74,15 +63,20 @@ const values = () => {
                             transition={{ duration: 0.5, delay: index * 0.2, ease: 'easeInOut' }}
                             viewport={{ once: false, amount: 0.3 }}
                         >
-                            <div className="service-header">
-                                <div className="service-icon">
-                                    {service.icon}
+                            <div className="service-card-inner">
+                                {/* Front */}
+                                <div className="service-card-front">
+                                    <div className="service-icon">{service.icon}</div>
+                                    <h3>{service.title}</h3>
                                 </div>
-                                <h3>{service.title}</h3>
+
+                                {/* Back */}
+                                <div className="service-card-back">
+                                    <p>{service.description}</p>
+                                </div>
                             </div>
-                            <p>{service.description}</p>
-                            <div className="service-hover-line"></div>
                         </motion.div>
+
                     ))}
                 </div>
             </div>

@@ -443,9 +443,6 @@ const LandingPage = () => {
                                 </section>
                                 <ReportCounter />
                                 <OurServices />
-                                <section id='projects'>
-                                    <ProjectSection />
-                                </section>
                                 <section id='workflow'>
                                     <OurWorkFlow />
                                 </section>
