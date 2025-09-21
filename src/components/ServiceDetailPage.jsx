@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./ServiceDetailPage.css";
 import bgImg from '../assets/1u.png';
+import Header from "./Header";
+import Footer from "./Footer";
 
 const ServiceDetail = () => {
     const [activeService, setActiveService] = useState(0);
@@ -156,6 +158,7 @@ const ServiceDetail = () => {
     return (
         <div className="service-detail-container">
             {/* Hero Section */}
+            <Header />
             <section
                 className="service-detail-hero"
                 style={{ backgroundImage: `url(${bgImg})` }}
@@ -180,9 +183,9 @@ const ServiceDetail = () => {
 
             {/* Service Navigation */}
             <section className="service-navigation">
-                <div className="container">
-                    <h2 className="about-heading">Explore Our Services</h2>
-                    <div className="service-name-line"></div>
+                <div className="container" style={{ justifyContent: "center" }}>
+                    <h2 className="about-heading" style={{ textAlign: "center" }}>Explore Our Services</h2>
+                    <div className="ine" style={{ textAlign: "center" }}></div>
 
                     <div className="service-tabs-mobile">
                         {services.map((service, index) => (
@@ -192,7 +195,7 @@ const ServiceDetail = () => {
 
                                     onClick={(e) => {
                                         e.preventDefault(); // Prevent browser scroll
-                                        setActiveService(activeService === index ? null : index);
+                                        setActiveService(index);
                                     }}
                                 >
                                     {service.name}
@@ -229,7 +232,7 @@ const ServiceDetail = () => {
                         {services.map((service, index) => (
                             <button
                                 key={service.id}
-                                type="button" // <-- important
+                                type="button"
                                 className={`service-tab ${activeService === index ? 'active' : ''}`}
                                 onClick={() => setActiveService(index)}
                             >
@@ -340,6 +343,7 @@ const ServiceDetail = () => {
                     </div>
                 </div>
             </section>
+            <Footer />
         </div>
     );
 };

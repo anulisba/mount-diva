@@ -587,30 +587,47 @@ section#home {
 
 /* Client Logos Section */
 .client-logos {
+    background: white;
+    padding: 10px 0;
+    overflow: hidden;
+    width: 100%;
     position: sticky;
     top: 0;
-    background: white;
-    padding: 30px 0;
-    overflow: hidden;
     z-index: 10;
 }
 
 .logo-track {
     display: flex;
-    gap: 40px;
-    animation: scrollLogos 15s linear infinite;
+    width: max-content;
+    animation: scrollLogos 30s linear infinite;
 }
 
-.logo-track img {
+.logo-slide {
+    display: flex;
+    gap: 40px;
+}
+
+.logo-slide img {
     height: 100px;
     object-fit: contain;
     filter: grayscale(100%);
     transition: filter 0.3s ease;
 }
 
-.logo-track img:hover {
+.logo-slide img:hover {
     filter: grayscale(0%);
 }
+
+@keyframes scrollLogos {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
 
 @keyframes scrollLogos {
     0% {
@@ -635,7 +652,7 @@ section#home {
     }
 
     .logo-track img {
-        height: 100px;
+        height: 120px;
     }
 }
 
@@ -695,6 +712,6 @@ section#home {
     }
 
     .logo-track img {
-        height: 60px;
+        height: 90px;
     }
 }

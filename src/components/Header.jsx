@@ -22,7 +22,7 @@ function Header() {
                 <ul>
                     <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
                     <li><Link to="/about-us" onClick={() => setMenuOpen(false)}>About Us</Link></li>
-                    <li><Link to="/all-project" onClick={() => setMenuOpen(false)}>Services</Link></li>
+                    <li><Link to="/service-detail" onClick={() => setMenuOpen(false)}>Our Services</Link></li>
                     <li><Link to="/contact-us" onClick={() => setMenuOpen(false)}>Contact Us</Link></li>
 
                     {/* Mobile button inside sidebar */}

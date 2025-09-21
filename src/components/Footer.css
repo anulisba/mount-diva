@@ -1,6 +1,6 @@
 /* Footer.css */
 .site-footer {
-    background: var(--secondary-color);
+    background: #023555;
     color: #fff;
     padding: 3rem 1.5rem 1.5rem;
     position: relative;
@@ -32,7 +32,7 @@
 .footer-logo img {
     width: 140px;
     margin-bottom: 1.2rem;
-    filter: brightness(0) invert(1);
+    /* filter: brightness(0) invert(1); */
 }
 
 .brand-description {
@@ -60,18 +60,18 @@
 }
 
 .social-link:hover {
-    background: #f6c90e;
+    background: transparent;
     transform: translateY(-3px);
 }
 
 .social-icon {
-    width: 16px;
-    height: 16px;
-    fill: #fff;
+    width: 36px;
+    height: 36px;
+    fill: #07A9E5;
 }
 
 .social-link:hover .social-icon {
-    fill: #1a1a1a;
+    fill: #07A9E5;
 }
 
 .footer-columns {
@@ -104,7 +104,7 @@
     left: 0;
     width: 30px;
     height: 2px;
-    background: #f6c90e;
+    background: #07A9E5;
 }
 
 .contact-list {
@@ -126,7 +126,7 @@
     height: 18px;
     flex-shrink: 0;
     margin-top: 3px;
-    fill: #f6c90e;
+    fill: #07A9E5;
 }
 
 .contact-label {
@@ -165,12 +165,12 @@
     top: 50%;
     transform: translateY(-50%);
     opacity: 0;
-    color: #f6c90e;
+    color: #07A9E5;
     transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #f6c90e;
+    color: #07A9E5;
     padding-left: 15px;
 }
 
@@ -230,7 +230,7 @@
 }
 
 .newsletter-button:hover {
-    background: #f6c90e;
+    background: #07A9E5;
 }
 
 .send-icon {

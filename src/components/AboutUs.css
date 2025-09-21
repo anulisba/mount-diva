@@ -65,9 +65,17 @@
 
 .about-heading {
     font-size: 2rem;
-    font-family: "Noticia Text", serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     color: #001b36;
+    margin-bottom: 20px;
+}
+
+.about-heading-wh {
+    font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: white;
     margin-bottom: 20px;
 }
 
@@ -77,6 +85,21 @@
     color: #555;
     margin-bottom: 30px;
     text-align: justify;
+}
+
+.about-btn-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* space between button and circle */
+}
+
+.blue-circle {
+    width: 30px;
+    /* circle size */
+    height: 30px;
+    border-radius: 50%;
+    background-color: #009fe3;
 }
 
 .about-btn {
@@ -112,12 +135,33 @@
         padding: 15px 20px;
     }
 
-    .about-heading {
+    .about-heading,
+    .about-heading-wh {
         font-size: 1.5rem;
     }
 
     .about-description {
         font-size: 1rem;
         padding: 0 10px;
+    }
+
+    .blue-circle {
+        width: 25px;
+        /* circle size */
+        height: 25px;
+        border-radius: 50%;
+        background-color: #009fe3;
+    }
+
+    .about-btn {
+        background: transparent;
+        color: #009fe3;
+        border: 2px solid #009fe3;
+        border-radius: 25px;
+        padding: 8px 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
     }
 }

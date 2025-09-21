@@ -88,6 +88,9 @@
     bottom: 30px;
     text-align: center;
     left: 50%;
+    font-weight: 400;
+    letter-spacing: 4px;
+    font-family: "Notable", serif;
     transform: translateX(-50%);
     color: white;
 }

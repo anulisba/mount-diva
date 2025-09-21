@@ -38,8 +38,9 @@
 .report-counter-item p {
     font-size: 1.8rem;
     color: white;
-    font-family: "Noticia Text", serif;
-    font-weight: 700;
+    font-family: "Notable", serif;
+    font-weight: 300;
+    letter-spacing: 2px;
     font-style: normal;
 }
 

@@ -19,20 +19,24 @@ import logo from '../assets/logo.png'
 import { useNavigate } from 'react-router-dom';
 import { FaPaperPlane } from 'react-icons/fa';
 import emailjs from 'emailjs-com';
-import client1 from "../assets/mountdiva-logo/Capture.PNG";
-import client2 from "../assets/mountdiva-logo/citymax.PNG";
-import client3 from "../assets/mountdiva-logo/crownplaza.PNG";
-import client4 from "../assets/mountdiva-logo/doubletree.PNG";
-import client5 from "../assets/mountdiva-logo/habtoor.PNG";
-import client6 from "../assets/mountdiva-logo/habtoorpalace.PNG";
-import client7 from "../assets/mountdiva-logo/hampton.PNG";
-import client8 from "../assets/mountdiva-logo/hilton.PNG";
-import client9 from "../assets/mountdiva-logo/ibis.PNG";
-import client10 from "../assets/mountdiva-logo/landmark.PNG";
-import client11 from "../assets/mountdiva-logo/marriot.PNG";
-import client12 from "../assets/mountdiva-logo/novotel.PNG";
-import client13 from "../assets/mountdiva-logo/vhotel.PNG";
-import client14 from "../assets/mountdiva-logo/waldorf.PNG";
+import client1 from "../assets/client-logo/Gemini_Generated_Image_fo3c9cfo3c9cfo3c.png";
+import client2 from "../assets/client-logo/Gemini_Generated_Image_k38f2nk38f2nk38f.png";
+import client3 from "../assets/client-logo/Gemini_Generated_Image_lm3sj5lm3sj5lm3s.png";
+import client4 from "../assets/client-logo/Gemini_Generated_Image_p7iktip7iktip7ik.png";
+import client5 from "../assets/client-logo/Gemini_Generated_Image_vql01pvql01pvql0.png";
+import client6 from "../assets/client-logo/Gemini_Generated_Image_y3u952y3u952y3u9.png";
+import client7 from "../assets/client-logo/Gemini_Generated_Image_ymweevymweevymwe.png";
+import client8 from "../assets/client-logo/Gemini_Generated_Image_yxun50yxun50yxun.png";
+
+import client10 from "../assets/client-logo/Untitled design (13).png";
+import client11 from "../assets/client-logo/Untitled design (14).png";
+import client12 from "../assets/client-logo/Untitled design (18).png";
+import client13 from "../assets/client-logo/Untitled design (19).png";
+import client14 from "../assets/client-logo/Untitled design (20).png";
+import client15 from "../assets/client-logo/Untitled design (21).png";
+import client16 from '../assets/client-logo/Untitled design (22).png';
+import client17 from '../assets/client-logo/WhatsApp Image 2025-09-12 at 2.29.06 PM.jpeg';
+
 import ContactLanding from './ContactLanding';
 const SplashScreen = ({ onComplete }) => {
     const [step, setStep] = useState(0);
@@ -422,23 +426,46 @@ const LandingPage = () => {
                                 {/* Client Logo Scrolling Section */}
                                 <section className="client-logos">
                                     <div className="logo-track">
-                                        <img src={client1} alt="Client 1" />
-                                        <img src={client2} alt="Client 2" />
-                                        <img src={client3} alt="Client 3" />
-                                        <img src={client4} alt="Client 4" />
-                                        <img src={client5} alt="Client 5" />
-                                        <img src={client6} alt="Client 6" />
-                                        <img src={client7} alt="Client 7" />
-                                        <img src={client8} alt="Client 8" />
-                                        <img src={client9} alt="Client 8" />
-                                        <img src={client10} alt="Client 8" />
-                                        <img src={client11} alt="Client 8" />
-                                        <img src={client12} alt="Client 8" />
-                                        <img src={client13} alt="Client 8" />
-                                        <img src={client14} alt="Client 8" />
-
+                                        <div className="logo-slide">
+                                            <img src={client1} alt="Client 1" />
+                                            <img src={client2} alt="Client 2" />
+                                            <img src={client3} alt="Client 3" />
+                                            <img src={client4} alt="Client 4" />
+                                            <img src={client5} alt="Client 5" />
+                                            <img src={client6} alt="Client 6" />
+                                            <img src={client7} alt="Client 7" />
+                                            <img src={client8} alt="Client 8" />
+                                            <img src={client10} alt="Client 10" />
+                                            <img src={client11} alt="Client 11" />
+                                            <img src={client12} alt="Client 12" />
+                                            <img src={client13} alt="Client 13" />
+                                            <img src={client14} alt="Client 14" />
+                                            <img src={client15} slt="client15" />
+                                            <img src={client16} slt="client15" />
+                                            <img src={client17} slt="client15" />
+                                        </div>
+                                        {/* Duplicate for seamless loop */}
+                                        <div className="logo-slide">
+                                            <img src={client1} alt="Client 1" />
+                                            <img src={client2} alt="Client 2" />
+                                            <img src={client3} alt="Client 3" />
+                                            <img src={client4} alt="Client 4" />
+                                            <img src={client5} alt="Client 5" />
+                                            <img src={client6} alt="Client 6" />
+                                            <img src={client7} alt="Client 7" />
+                                            <img src={client8} alt="Client 8" />
+                                            <img src={client10} alt="Client 10" />
+                                            <img src={client11} alt="Client 11" />
+                                            <img src={client12} alt="Client 12" />
+                                            <img src={client13} alt="Client 13" />
+                                            <img src={client14} alt="Client 14" />
+                                            <img src={client15} slt="client15" />
+                                            <img src={client16} slt="client15" />
+                                            <img src={client17} slt="client15" />
+                                        </div>
                                     </div>
                                 </section>
+
                                 <section id='about-us'>
                                     <AboutUs />
                                 </section>
@@ -447,9 +474,9 @@ const LandingPage = () => {
                                 <section id='workflow'>
                                     <OurWorkFlow />
                                 </section>
-                                <section id='reviews'>
+                                {/* <section id='reviews'>
                                     <CustomerReviews />
-                                </section>
+                                </section> */}
                                 <section id='contact'>
                                     <ContactLanding />
                                 </section>

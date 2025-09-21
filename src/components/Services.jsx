@@ -10,13 +10,13 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import bgImg from '../assets/1u.png';
 const OurServices = () => {
-    const serviceImages = ['https://res.cloudinary.com/dpo91btlc/image/upload/v1758211588/Untitled_design_7_kdxdg3.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211584/Untitled_design_6_mxnxvp.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211584/Untitled_design_5_lrkizr.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211246/Untitled_design_2_i4l5j7.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211245/Untitled_design_3_nlukvw.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211246/Untitled_design_1_md5qqz.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211245/Untitled_design_4_xvcpez.png'];
+    const serviceImages = ['https://res.cloudinary.com/dpo91btlc/image/upload/v1758444839/Untitled_design_9_buapq6.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758444839/Untitled_design_10_x6j8bb.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758444839/Untitled_design_11_bwekwu.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211246/Untitled_design_2_i4l5j7.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211245/Untitled_design_3_nlukvw.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211246/Untitled_design_1_md5qqz.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211245/Untitled_design_4_xvcpez.png'];
     const [activeIndex, setActiveIndex] = useState(0);
     return (
         <section id="service" className="service-section" style={{ backgroundImage: `url(${bgImg})` }}>
             <div className="services-overlay">
-                <span className="about-subtitle">About Us</span>
-                <h2 className="about-heading">Excellence You Can Trust</h2>
+                <span className="about-subtitle">Our Services</span>
+                <h2 className="about-heading">Delivering Excellence in Every Service</h2>
 
                 <div className="service-name-line"></div>
                 <Swiper

@@ -32,6 +32,7 @@ const AboutUs = () => {
                 <div className="about-text-content">
                     <span className="about-subtitle">About Us</span>
                     <h2 className="about-heading">Excellence You Can Trust</h2>
+                    <div className="service-name-line"></div>
                     <p className="about-description">
                         Mount Diva Technical Services L.L.C is a UAE-based company providing
                         reliable technical and MEP solutions with integrity, efficiency, and
@@ -42,7 +43,11 @@ const AboutUs = () => {
                         for our customers, partners, and community.
                     </p>
 
-                    <button className="about-btn" onClick={handleAboutUs}>Know More</button>
+                    <div className="about-btn-container">
+                        <button className="about-btn" onClick={handleAboutUs}>Know More</button>
+                        <span className="blue-circle"></span>
+                    </div>
+
                 </div>
             </motion.div>
         </section>

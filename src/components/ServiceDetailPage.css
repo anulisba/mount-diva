@@ -44,6 +44,19 @@
     font-weight: 700;
 }
 
+.ine {
+    width: 80px;
+    /* length of the line */
+    height: 5px;
+    /* thickness */
+    background-color: #0070c0;
+    /* blue color */
+    margin: 10px auto;
+    /* centers it under the heading */
+    border-radius: 5px;
+    /* optional: rounded edges */
+}
+
 .service-detail-hero p {
     max-width: 700px;
     margin: 0 auto;
@@ -63,7 +76,7 @@
     margin: 0 auto;
 }
 
-.service-tabs {
+.service-tabs-desktop {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -73,9 +86,9 @@
 
 .service-tab {
     padding: 12px 24px;
-    background: white;
-    border: 2px solid #0070c0;
-    border-radius: 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #0070c0;
     color: #0070c0;
     font-weight: 600;
     cursor: pointer;
@@ -83,13 +96,17 @@
 }
 
 .service-tab:hover {
-    background: #0070c0;
-    color: white;
+    background: transparent;
+    border: 2px solid #0070c0;
+    color: #002b5b;
+    border-radius: 8px;
 }
 
 .service-tab.active {
-    background: #0070c0;
-    color: white;
+    background: transparent;
+    border: 2px solid #0070c0;
+    color: #002b5b;
+    border-radius: 8px;
 }
 
 /* Service Details Section */
@@ -142,7 +159,7 @@
 .service-features h3 {
     color: #002b5b;
     margin-bottom: 15px;
-    font-family: 'Noticia Text', serif;
+    font-family: 'Montserrat', serif;
 }
 
 .service-features ul {
@@ -207,7 +224,6 @@
         width: 100%;
         text-align: left;
         padding: 15px 20px;
-        border-radius: 10px;
         font-size: 1rem;
     }
 }
@@ -286,7 +302,7 @@
     color: #002b5b;
     margin-top: 0;
     margin-bottom: 10px;
-    font-family: 'Noticia Text', serif;
+    font-family: 'Montserrat', serif;
 }
 
 /* Why Choose Section */
@@ -329,7 +345,7 @@
     color: #002b5b;
     margin-top: 0;
     margin-bottom: 15px;
-    font-family: 'Noticia Text', serif;
+    font-family: 'Montserrat', serif;
 }
 
 .benefit-item p {
@@ -338,20 +354,13 @@
     font-size: 1rem;
 }
 
-/* Shared Styles */
-.about-heading {
-    font-family: 'Noticia Text', serif;
-    font-size: 2.5rem;
-    text-align: center;
-    color: #002b5b;
-    margin-bottom: 20px;
-}
+
 
 .service-name-line {
     width: 80px;
     height: 4px;
+    margin-bottom: 10px;
     background: #0070c0;
-    margin: 0 auto 40px;
 }
 
 .container {
@@ -370,10 +379,6 @@
         font-size: 1.1rem;
     }
 
-    .about-heading {
-        font-size: 2rem;
-    }
-
     .service-content {
         flex-direction: column;
     }
@@ -382,6 +387,10 @@
 @media (max-width: 768px) {
     .service-detail-hero {
         padding: 120px 20px 80px;
+    }
+
+    .workflow-steps {
+        margin-left: 10px;
     }
 
     .service-tabs {
@@ -399,9 +408,17 @@
         left: 30px;
     }
 
+    .desktop-only {
+        display: none;
+    }
+
     .step-number {
         width: 50px;
         height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .step-content h4 {
         font-size: 1.2rem;
     }
 }
@@ -411,8 +428,12 @@
         font-size: 2rem;
     }
 
-    .about-heading {
-        font-size: 1.8rem;
+    .service-tabs-desktop {
+        display: none;
+    }
+
+    .desktop-only {
+        display: none;
     }
 
     .benefits-grid {

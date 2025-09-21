@@ -50,33 +50,43 @@ const values = () => {
                 <div className="our-services-header">
                     <span className="about-subtitle">Our Values</span>
                     <h2 className="about-heading">Why People Choose Us</h2>
+                    <div className="service-name-line"></div>
                 </div>
             </div>
             <div className="our-services-grid-wrapper">
                 <div className="our-services-grid">
                     {services.map((service, index) => (
                         <motion.div
-                            className="service-card"
+                            className="values-card"
                             key={index}
-                            initial={{ x: -50, opacity: 0 }}
-                            whileInView={{ x: 0, opacity: 1 }}
-                            transition={{ duration: 0.5, delay: index * 0.2, ease: 'easeInOut' }}
-                            viewport={{ once: false, amount: 0.3 }}
+                            initial={{ y: 50, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            whileHover={{ y: -5 }}
                         >
-                            <div className="service-card-inner">
+                            <div className="values-card-inner">
                                 {/* Front */}
-                                <div className="service-card-front">
-                                    <div className="service-icon">{service.icon}</div>
+                                <div className="values-card-front">
+                                    <div className="value-icon-wrapper">
+                                        <div className="value-icon">{service.icon}</div>
+                                    </div>
                                     <h3>{service.title}</h3>
+                                    <div className="value-hint">
+                                        <span>Hover to learn more</span>
+                                    </div>
                                 </div>
 
                                 {/* Back */}
-                                <div className="service-card-back">
-                                    <p>{service.description}</p>
+                                <div className="values-card-back">
+                                    <div className="value-content">
+                                        <div className="value-icon-small">{service.icon}</div>
+                                        <h3>{service.title}</h3>
+                                        <p>{service.description}</p>
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>
-
                     ))}
                 </div>
             </div>

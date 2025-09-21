@@ -1,66 +1,68 @@
 // components/ContactSection.jsx
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaPaperPlane } from 'react-icons/fa';
-import './ContactUs.css'
-import bg1 from '../assets/bg1.jpg';
+import { FaPaperPlane, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import './ContactUs.css';
 import Header from './Header';
 import Footer from './Footer';
 import Page from './ScrollToTop';
 import emailjs from 'emailjs-com';
+
 const ContactSection = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
-        subject: '',
         message: ''
     });
+    const [newsletterEmail, setNewsletterEmail] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [activeMap, setActiveMap] = useState('dubai');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const handleNewsletterChange = (e) => {
+        setNewsletterEmail(e.target.value);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        emailjs.send(
-            'service_6c6do5l', // replace with your actual service ID
-            'template_4t6imcx', // replace with your actual template ID
-            {
-                name: formData.name,
-                email: formData.email,
-                phone: formData.phone,
-                title: formData.subject,
-                message: formData.message,
-                to_email: 'abhisplanet2025@gmail.com' // optional if defined in template
-            },
-            'zQ4O3aRATuQjHFFMg' // replace with your public key
-        ).then(() => {
-            setIsSubmitted(true);
-            setIsSubmitting(false);
-
-            setTimeout(() => {
-
-            }, 3000);
-        }).catch((error) => {
-            console.error('Failed to send message:', error);
-            setIsSubmitting(false);
-            alert('Failed to send message. Please try again later.');
-        });
+        emailjs
+            .send(
+                'service_6c6do5l',
+                'template_4t6imcx',
+                {
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    message: formData.message,
+                    to_email: 'abhisplanet2025@gmail.com'
+                },
+                'zQ4O3aRATuQjHFFMg'
+            )
+            .then(() => {
+                setIsSubmitted(true);
+                setIsSubmitting(false);
+            })
+            .catch((error) => {
+                console.error('Failed to send message:', error);
+                setIsSubmitting(false);
+                alert('Failed to send message. Please try again later.');
+            });
     };
 
     return (
         <>
             <Header />
-            <section id="contact" className="contact-section">
+            <section id="contact" className="contact-sections">
                 <Page>
                     <div className="contact-container">
+
                         {/* Header */}
                         <motion.div
                             className="contact-header"
@@ -68,109 +70,31 @@ const ContactSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                             viewport={{ once: true }}
+
                         >
-                            <div className="our-services-header">
-                                <div className='our-service-title'>
-                                    <h2>Let's Create Something<br />Exciting</h2>
-                                    <div className="our-service-line-heading" />
-                                </div>
-                                <div className="about-us-line-container">
-                                    <div className="about-us-line" />
-                                    <span className="about-us-subtitle">CONTACT US</span>
-                                </div>
-                            </div>
+                            <h2 className="section-title">Contact Us</h2>
+                            <p className="section-description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                            </p>
                         </motion.div>
 
-                        <div className="contact-content">
-                            {/* Contact Information with Background */}
-                            <motion.div
-                                className="contact-info"
-                                style={{ backgroundImage: `url(${bg1})` }}
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.6, delay: 0.2 }}
-                                viewport={{ once: true }}
-                            >
-                                <div className="contact-info-overlay"></div>
-                                <div className="contact-info-content">
-                                    <div className="info-card">
-                                        <div className="info-icon">
-                                            <FaMapMarkerAlt className="icon" />
-                                        </div>
-                                        <div className="info-text">
-                                            <h3>Our Studio – Dubai</h3>
-                                            <p>Qusais, Industrial Area 2, Dubai</p>
-                                            <p>+971562511837</p>
-                                            <h3>Our Studio – Kerala</h3>
-                                            <p>FABDEC INTERIORS PRIVATE LIMITED</p>
-                                            <p>Kundanoor, Maradu, Ernakulam - 682304</p>
-                                            <p>+91 97475 15517</p>
-                                        </div>
-                                    </div>
+                        {/* Logos */}
+                        <div className="logo-row">
+                            <img src="/logos/logo1.png" alt="logo1" />
+                            <img src="/logos/logo2.png" alt="logo2" />
+                            <img src="/logos/logo3.png" alt="logo3" />
+                            <img src="/logos/logo4.png" alt="logo4" />
+                        </div>
 
-                                    <div className="info-card">
-                                        <div className="info-icon">
-                                            <FaClock className="icon" />
-                                        </div>
-                                        <div className="info-text">
-                                            <h3>Working Hours</h3>
-                                            <p>Monday - Saturday: 9am - 6pm</p>
-                                        </div>
-                                    </div>
-
-
-                                    <div className="map-tabs">
-                                        <div className="map-tab-buttons">
-                                            <button
-                                                className={activeMap === 'dubai' ? 'active' : ''}
-                                                onClick={() => setActiveMap('dubai')}
-                                            >
-                                                Dubai Office
-                                            </button>
-                                            <button
-                                                className={activeMap === 'kerala' ? 'active' : ''}
-                                                onClick={() => setActiveMap('kerala')}
-                                            >
-                                                Kerala Office
-                                            </button>
-                                        </div>
-
-                                        <div className="map-placeholder">
-                                            {activeMap === 'dubai' && (
-                                                <iframe
-                                                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3607.886178276538!2d55.37862017538427!3d25.274414077661387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDE2JzI3LjkiTiA1NcKwMjInNTIuMyJF!5e0!3m2!1sen!2sin!4v1751958930555!5m2!1sen!2sin"
-                                                    width="100%"
-                                                    height="300"
-                                                    style={{ border: 0 }}
-                                                    allowFullScreen=""
-                                                    loading="lazy"
-                                                    referrerPolicy="no-referrer-when-downgrade"
-                                                ></iframe>
-                                            )}
-                                            {activeMap === 'kerala' && (
-                                                <iframe
-                                                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3929.963287605679!2d76.3158454750303!3d9.937012690165187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOcKwNTYnMTMuMyJOIDc2wrAxOScwNi4zIkU!5e0!3m2!1sen!2sin!4v1752421803120!5m2!1sen!2sin"
-                                                    width="100%"
-                                                    height="300"
-                                                    style={{ border: 0 }}
-                                                    allowFullScreen=""
-                                                    loading="lazy"
-                                                    referrerPolicy="no-referrer-when-downgrade"
-                                                ></iframe>
-                                            )}
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </motion.div>
-
+                        {/* Form + Newsletter */}
+                        <div className="form-newsletter-grid">
                             {/* Contact Form */}
                             <motion.div
                                 className="contact-form-container"
-                                initial={{ opacity: 0, x: 20 }}
+                                initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.6, delay: 0.3 }}
+                                transition={{ duration: 0.6 }}
                                 viewport={{ once: true }}
                             >
                                 {isSubmitted ? (
@@ -181,92 +105,104 @@ const ContactSection = () => {
                                     </div>
                                 ) : (
                                     <form className="contact-form" onSubmit={handleSubmit}>
-                                        <div className="form-group">
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                value={formData.name}
-                                                onChange={handleChange}
-                                                placeholder="Your Name"
-                                                required
-                                                className="form-input"
-                                            />
-                                            <span className="input-highlight"></span>
-                                        </div>
-
                                         <div className="form-row">
-                                            <div className="form-group">
-                                                <input
-                                                    type="email"
-                                                    name="email"
-                                                    value={formData.email}
-                                                    onChange={handleChange}
-                                                    placeholder="Email Address"
-                                                    required
-                                                    className="form-input"
-                                                />
-                                                <span className="input-highlight"></span>
-                                            </div>
-
-                                            <div className="form-group">
-                                                <input
-                                                    type="tel"
-                                                    name="phone"
-                                                    value={formData.phone}
-                                                    onChange={handleChange}
-                                                    placeholder="Phone Number"
-                                                    className="form-input"
-                                                />
-                                                <span className="input-highlight"></span>
-                                            </div>
-                                        </div>
-
-                                        <div className="form-group">
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                placeholder="Email"
+                                                value={formData.email}
+                                                onChange={handleChange}
+                                                required
+                                            />
                                             <input
                                                 type="text"
-                                                name="subject"
-                                                value={formData.subject}
+                                                name="phone"
+                                                placeholder="Phone"
+                                                value={formData.phone}
                                                 onChange={handleChange}
-                                                placeholder="Subject"
                                                 required
-                                                className="form-input"
                                             />
-                                            <span className="input-highlight"></span>
                                         </div>
 
-                                        <div className="form-group">
-                                            <textarea
-                                                name="message"
-                                                value={formData.message}
-                                                onChange={handleChange}
-                                                placeholder="Your Message"
-                                                rows="4"
-                                                required
-                                                className="form-textarea"
-                                            ></textarea>
-                                            <span className="input-highlight"></span>
-                                        </div>
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            placeholder="Name"
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                            required
+                                        />
 
-                                        <motion.button
-                                            className="submit-btn"
-                                            type="submit"
-                                            disabled={isSubmitting}
-                                            whileHover={{ scale: 1.03 }}
-                                            whileTap={{ scale: 0.98 }}
-                                        >
-                                            {isSubmitting ? (
-                                                <span>Sending...</span>
-                                            ) : (
-                                                <>
-                                                    <span>Send Message</span>
-                                                    <FaPaperPlane className="send-icon" />
-                                                </>
-                                            )}
-                                            <div className="btn-hover-effect"></div>
-                                        </motion.button>
+                                        <textarea
+                                            name="message"
+                                            placeholder="Message"
+                                            value={formData.message}
+                                            onChange={handleChange}
+                                            rows="5"
+                                            required
+                                        ></textarea>
+
+                                        <button type="submit" className="submit-btn" disabled={isSubmitting}>
+                                            {isSubmitting ? 'Sending...' : 'Submit Button'}
+                                        </button>
                                     </form>
                                 )}
                             </motion.div>
+
+                            {/* Newsletter */}
+                            <motion.div
+                                className="newsletter-box"
+                                initial={{ opacity: 0, x: 20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.6 }}
+                                viewport={{ once: true }}
+                            >
+                                <h3>Our Newsletters</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                                    luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                </p>
+                                <div className="newsletter-form">
+                                    <input
+                                        type="email"
+                                        placeholder="Email"
+                                        value={newsletterEmail}
+                                        onChange={handleNewsletterChange}
+                                    />
+                                    <button>Submit Button</button>
+                                </div>
+                            </motion.div>
+                        </div>
+
+                        {/* Contact Info Cards */}
+                        <div className="info-cards">
+                            <div className="info-card">
+                                <FaPhoneAlt />
+                                <h4>(+876) 765 665</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                            <div className="info-card">
+                                <FaEnvelope />
+                                <h4>mail@influenca.id</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                            <div className="info-card">
+                                <FaMapMarkerAlt />
+                                <h4>London Eye London</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
+
+                        {/* Google Map */}
+                        <div className="map-container">
+                            <iframe
+                                title="Google Map"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19802.23640134847!2d-0.1246261!3d51.5032978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900fb2f55%3A0xb64b7f6ecb8b67e4!2sLondon%20Eye!5e0!3m2!1sen!2suk!4v1634134534970!5m2!1sen!2suk"
+                                width="100%"
+                                height="350"
+                                allowFullScreen=""
+                                loading="lazy"
+                            ></iframe>
                         </div>
                     </div>
                 </Page>
