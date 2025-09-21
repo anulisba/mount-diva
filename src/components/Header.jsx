@@ -22,26 +22,26 @@ function Header() {
                 <ul>
                     <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
                     <li><Link to="/about-us" onClick={() => setMenuOpen(false)}>About Us</Link></li>
-                    <li><Link to="/all-project" onClick={() => setMenuOpen(false)}>Projects</Link></li>
+                    <li><Link to="/all-project" onClick={() => setMenuOpen(false)}>Services</Link></li>
                     <li><Link to="/contact-us" onClick={() => setMenuOpen(false)}>Contact Us</Link></li>
 
                     {/* Mobile button inside sidebar */}
-                    <li className="mobile-only book-btn">
+                    {/* <li className="mobile-only book-btn">
                         <button onClick={handlebooknow}>
                             Book an Appointment
                             <div className="book-btn-hover-effect"></div>
                         </button>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
 
             {/* Desktop Button */}
-            <div className="desktop-only book-btn">
+            {/* <div className="desktop-only book-btn">
                 <button onClick={handlebooknow}>
                     Book an Appointment
                     <div className="book-btn-hover-effect"></div>
                 </button>
-            </div>
+            </div> */}
 
             <div className="hamburger-icon" onClick={() => setMenuOpen(!menuOpen)}>
                 <span></span>

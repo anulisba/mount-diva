@@ -382,6 +382,7 @@ const LandingPage = () => {
 
     return (
         <div className="app-container">
+            <Header />
             <AnimatePresence mode="wait">
                 {showSplash ? (
                     <SplashScreen onComplete={handleSplashComplete} />
@@ -425,7 +426,6 @@ const LandingPage = () => {
                                         <img src={client2} alt="Client 2" />
                                         <img src={client3} alt="Client 3" />
                                         <img src={client4} alt="Client 4" />
-                                        {/* duplicate for infinite scroll effect */}
                                         <img src={client5} alt="Client 5" />
                                         <img src={client6} alt="Client 6" />
                                         <img src={client7} alt="Client 7" />
@@ -436,6 +436,7 @@ const LandingPage = () => {
                                         <img src={client12} alt="Client 8" />
                                         <img src={client13} alt="Client 8" />
                                         <img src={client14} alt="Client 8" />
+
                                     </div>
                                 </section>
                                 <section id='about-us'>
