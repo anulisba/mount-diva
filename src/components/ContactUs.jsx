@@ -1,13 +1,15 @@
 // components/ContactSection.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaPaperPlane, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaPaperPlane, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaUser, FaComment, FaNewspaper } from 'react-icons/fa';
 import './ContactUs.css';
 import Header from './Header';
 import Footer from './Footer';
 import Page from './ScrollToTop';
 import emailjs from 'emailjs-com';
-
+import logo1 from '../assets/client-logo/Untitled design (22).png'
+import logo2 from '../assets/client-logo/Gemini_Generated_Image_lm3sj5lm3sj5lm3s.png'
+import logo3 from '../assets/client-logo/Untitled design (13).png'
 const ContactSection = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -27,6 +29,10 @@ const ContactSection = () => {
     const handleNewsletterChange = (e) => {
         setNewsletterEmail(e.target.value);
     };
+    useEffect(() => {
+        const text = document.querySelector(".contact-text");
+        text.classList.add("fade-up");
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -48,6 +54,7 @@ const ContactSection = () => {
             .then(() => {
                 setIsSubmitted(true);
                 setIsSubmitting(false);
+                setFormData({ name: '', email: '', phone: '', message: '' });
             })
             .catch((error) => {
                 console.error('Failed to send message:', error);
@@ -61,149 +68,304 @@ const ContactSection = () => {
             <Header />
             <section id="contact" className="contact-sections">
                 <Page>
-                    <div className="contact-container">
 
-                        {/* Header */}
+
+                    {/* Header */}
+                    <motion.div
+                        className="contact-header"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                    >
+                        <div className="header-overlay">
+                            <h2 className="section-title">Get In Touch With Us</h2>
+                            <p className="section-description">
+                                We're here to help you with any questions or inquiries. Reach out to us and we'll respond promptly.
+                            </p>
+                            <div className="header-decoration">
+                                <div className="decoration-circle"></div>
+                                <div className="decoration-circle"></div>
+                                <div className="decoration-circle"></div>
+                            </div>
+                        </div>
+                    </motion.div>
+                    <div className="contact-container">
+                        {/* Logos */}
                         <motion.div
-                            className="contact-header"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            className="logo-section"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6 }}
                             viewport={{ once: true }}
-
                         >
-                            <h2 className="section-title">Contact Us</h2>
-                            <p className="section-description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                                luctus nec ullamcorper mattis, pulvinar dapibus leo.
-                            </p>
-                        </motion.div>
+                            <div className="section-subtitle">
+                                <h2 className="about-heading">Trusted by Industry Leaders</h2>
+                                <div className="title-underline"></div>
+                            </div>
+                            <div className="logo-row">
+                                <div className="logo-item">
+                                    <img src={logo1} alt="logo1" />
+                                </div>
+                                <div className="logo-item">
+                                    <img src={logo2} alt="logo2" />
+                                </div>
+                                <div className="logo-item">
+                                    <img src={logo3} alt="logo3" />
+                                </div>
 
-                        {/* Logos */}
-                        <div className="logo-row">
-                            <img src="/logos/logo1.png" alt="logo1" />
-                            <img src="/logos/logo2.png" alt="logo2" />
-                            <img src="/logos/logo3.png" alt="logo3" />
-                            <img src="/logos/logo4.png" alt="logo4" />
-                        </div>
+                            </div>
+                        </motion.div>
 
                         {/* Form + Newsletter */}
                         <div className="form-newsletter-grid">
                             {/* Contact Form */}
                             <motion.div
                                 className="contact-form-container"
-                                initial={{ opacity: 0, x: -20 }}
+                                initial={{ opacity: 0, x: -30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.6 }}
+                                transition={{ duration: 0.7 }}
                                 viewport={{ once: true }}
                             >
+                                <div className="form-header">
+
+                                    <h2 className="about-heading">Send us a Message</h2>
+                                    <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                                </div>
+
                                 {isSubmitted ? (
-                                    <div className="success-message">
+                                    <motion.div
+                                        className="success-message"
+                                        initial={{ scale: 0.8 }}
+                                        animate={{ scale: 1 }}
+                                        transition={{ duration: 0.4 }}
+                                    >
                                         <FaPaperPlane className="success-icon" />
                                         <h3>Message Sent Successfully!</h3>
                                         <p>Thank you for contacting us. We'll get back to you soon.</p>
-                                    </div>
+                                        <button
+                                            className="back-to-form"
+                                            onClick={() => setIsSubmitted(false)}
+                                        >
+                                            Send Another Message
+                                        </button>
+                                    </motion.div>
                                 ) : (
                                     <form className="contact-form" onSubmit={handleSubmit}>
-                                        <div className="form-row">
-                                            <input
-                                                type="email"
-                                                name="email"
-                                                placeholder="Email"
-                                                value={formData.email}
-                                                onChange={handleChange}
-                                                required
-                                            />
+                                        <div className="input-with-icon">
+                                            <FaUser className="input-icon" />
                                             <input
                                                 type="text"
-                                                name="phone"
-                                                placeholder="Phone"
-                                                value={formData.phone}
+                                                name="name"
+                                                placeholder="Your Full Name"
+                                                value={formData.name}
                                                 onChange={handleChange}
                                                 required
                                             />
                                         </div>
 
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            placeholder="Name"
-                                            value={formData.name}
-                                            onChange={handleChange}
-                                            required
-                                        />
+                                        <div className="form-row">
+                                            <div className="input-with-icon">
+                                                <FaEnvelope className="input-icon" />
+                                                <input
+                                                    type="email"
+                                                    name="email"
+                                                    placeholder="Email Address"
+                                                    value={formData.email}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="input-with-icon">
+                                                <FaPhoneAlt className="input-icon" />
+                                                <input
+                                                    type="text"
+                                                    name="phone"
+                                                    placeholder="Phone Number"
+                                                    value={formData.phone}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
 
-                                        <textarea
-                                            name="message"
-                                            placeholder="Message"
-                                            value={formData.message}
-                                            onChange={handleChange}
-                                            rows="5"
-                                            required
-                                        ></textarea>
+                                        <div className="input-with-icon textarea-container">
+                                            <FaComment className="input-icon" />
+                                            <textarea
+                                                name="message"
+                                                placeholder="Your Message"
+                                                value={formData.message}
+                                                onChange={handleChange}
+                                                rows="5"
+                                                required
+                                            ></textarea>
+                                        </div>
 
-                                        <button type="submit" className="submit-btn" disabled={isSubmitting}>
-                                            {isSubmitting ? 'Sending...' : 'Submit Button'}
-                                        </button>
+                                        <motion.button
+                                            type="submit"
+                                            className="submit-btn"
+                                            disabled={isSubmitting}
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                        >
+                                            {isSubmitting ? (
+                                                <>
+                                                    <div className="spinner"></div>
+                                                    Sending...
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <FaPaperPlane className="btn-icon" />
+                                                    Send Message
+                                                </>
+                                            )}
+                                        </motion.button>
                                     </form>
                                 )}
                             </motion.div>
 
                             {/* Newsletter */}
-                            <motion.div
+                            {/* <motion.div
                                 className="newsletter-box"
-                                initial={{ opacity: 0, x: 20 }}
+                                initial={{ opacity: 0, x: 30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.6 }}
+                                transition={{ duration: 0.7 }}
                                 viewport={{ once: true }}
                             >
-                                <h3>Our Newsletters</h3>
+                                <div className="newsletter-header">
+                                    <FaNewspaper className="newsletter-icon" />
+                                    <h3>Stay Updated</h3>
+                                </div>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
-                                    luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                                    Subscribe to our newsletter and get the latest updates, news, and offers directly to your inbox.
                                 </p>
                                 <div className="newsletter-form">
-                                    <input
-                                        type="email"
-                                        placeholder="Email"
-                                        value={newsletterEmail}
-                                        onChange={handleNewsletterChange}
-                                    />
-                                    <button>Submit Button</button>
+                                    <div className="input-with-icon">
+                                        <FaEnvelope className="input-icon" />
+                                        <input
+                                            type="email"
+                                            placeholder="Enter your email"
+                                            value={newsletterEmail}
+                                            onChange={handleNewsletterChange}
+                                        />
+                                    </div>
+                                    <motion.button
+                                        className="newsletter-btn"
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
+                                        Subscribe
+                                    </motion.button>
                                 </div>
-                            </motion.div>
+                                <div className="newsletter-benefits">
+                                    <span>✓ Weekly updates</span>
+                                    <span>✓ Exclusive content</span>
+                                    <span>✓ No spam</span>
+                                </div>
+                            </motion.div> */}
+
+                            <div className="contact-box">
+                                <h2 className="contact-text">
+                                    Join multiple people <br /> who already trust us!
+                                </h2>
+                                <button className="contact-btn">Contact with us to know more</button>
+
+                                {/* Animated Circles */}
+                                <div className="circle circle1"></div>
+                                <div className="circle circle2"></div>
+                                <div className="circle circle3"></div>
+                            </div>
+
                         </div>
 
                         {/* Contact Info Cards */}
-                        <div className="info-cards">
-                            <div className="info-card">
-                                <FaPhoneAlt />
-                                <h4>(+876) 765 665</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <motion.div
+                            className="info-section"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                        >
+                            <div className="section-subtitle">
+                                <h2 className="about-heading">Other Ways to Reach Us</h2>
+                                <div className="title-underline"></div>
                             </div>
-                            <div className="info-card">
-                                <FaEnvelope />
-                                <h4>mail@influenca.id</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <div className="info-cards">
+                                <motion.div
+                                    className="info-card"
+                                    whileHover={{ y: -5 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <div className='values-icon-wrapper'>
+                                        <div className="value-icon">
+                                            <FaPhoneAlt />
+                                        </div>
+                                    </div>
+                                    <h4>(+876) 765 665</h4>
+                                    <p>Call us anytime during business hours for immediate assistance</p>
+                                    <span className="card-footer">Mon-Fri: 9AM-6PM</span>
+                                </motion.div>
+                                <motion.div
+                                    className="info-card"
+                                    whileHover={{ y: -5 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <div className='values-icon-wrapper'>
+                                        <div className="value-icon">
+                                            <FaEnvelope />
+                                        </div>
+                                    </div>
+                                    <h4>mail@influenca.id</h4>
+                                    <p>Send us an email and we'll respond within 24 hours</p>
+                                    <span className="card-footer">Response within 24h</span>
+                                </motion.div>
+                                <motion.div
+                                    className="info-card"
+                                    whileHover={{ y: -5 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <div className='values-icon-wrapper'>
+                                        <div className="value-icon">
+                                            <FaMapMarkerAlt />
+                                        </div>
+                                    </div>
+                                    <h4>London Eye London</h4>
+                                    <p>Visit our office for a face-to-face consultation</p>
+                                    <span className="card-footer">Open to visitors</span>
+                                </motion.div>
                             </div>
-                            <div className="info-card">
-                                <FaMapMarkerAlt />
-                                <h4>London Eye London</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
+                        </motion.div>
 
                         {/* Google Map */}
-                        <div className="map-container">
-                            <iframe
-                                title="Google Map"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19802.23640134847!2d-0.1246261!3d51.5032978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900fb2f55%3A0xb64b7f6ecb8b67e4!2sLondon%20Eye!5e0!3m2!1sen!2suk!4v1634134534970!5m2!1sen!2suk"
-                                width="100%"
-                                height="350"
-                                allowFullScreen=""
-                                loading="lazy"
-                            ></iframe>
-                        </div>
+                        <motion.div
+                            className="map-section"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                        >
+                            <div className="section-subtitle">
+                                <h2 className="about-heading">Visit Our Office</h2>
+                                <div className="title-underline"></div>
+                            </div>
+                            <div className="map-container">
+                                <iframe
+                                    title="Google Map"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19802.23640134847!2d-0.1246261!3d51.5032978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900fb2f55%3A0xb64b7f6ecb8b67e4!2sLondon%20Eye!5e0!3m2!1sen!2suk!4v1634134534970!5m2!1sen!2suk"
+                                    width="100%"
+                                    height="400"
+                                    allowFullScreen=""
+                                    loading="lazy"
+                                ></iframe>
+                                <div className="map-overlay">
+                                    <div className="map-info">
+                                        <h4>Our Location</h4>
+                                        <p>London Eye, London, UK</p>
+                                        <button className="directions-btn">Get Directions</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
                     </div>
                 </Page>
             </section>
