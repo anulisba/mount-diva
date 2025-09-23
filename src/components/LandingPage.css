@@ -73,7 +73,7 @@
 }
 
 .logo-image {
-    width: 100px;
+    width: 150px;
     height: 100%;
     object-fit: contain;
 }
@@ -625,6 +625,19 @@ section#home {
     background: rgba(255, 255, 255, 0.2);
 }
 
+.licon {
+    font-size: 1.5rem;
+    margin-left: 8px;
+    /* spacing between text and icon */
+    vertical-align: middle;
+}
+
+.lbtn.contact .licon {
+    margin-right: 5px;
+    /* icon before text */
+    margin-left: 0;
+}
+
 /* Entrance animation */
 @keyframes fadeSlideUp {
     0% {
@@ -758,6 +771,19 @@ section#home {
     .lbtn.contact {
         font-size: 12px;
         max-width: 150px;
+    }
+
+    .licon {
+        font-size: 15px;
+        margin-left: 8px;
+        /* spacing between text and icon */
+        vertical-align: middle;
+    }
+
+    .lbtn.contact .licon {
+        margin-right: 2px;
+        /* icon before text */
+        margin-left: 0;
     }
 
     .lbtn.know {

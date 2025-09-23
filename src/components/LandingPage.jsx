@@ -13,7 +13,7 @@ import ProjectSection from './ProjectSection';
 import OurWorkFlow from './OurServices';
 import CustomerReviews from './CustomerReviews';
 import Footer from './Footer';
-import { FaInstagram, FaWhatsapp, FaFacebookF } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp, FaFacebookF, FaArrowRight } from "react-icons/fa";
 import ContactLandingSection from './ContactLanding';
 import logo from '../assets/logo.png'
 import { useNavigate } from 'react-router-dom';
@@ -159,17 +159,18 @@ const ContactPopup = ({ onClose }) => {
         setIsSubmitting(true);
 
         emailjs.send(
-            'service_6c6do5l',
-            'template_4t6imcx',
+
+            'service_jee5dxn',
+            'template_7w33feq',
             {
                 name: formData.name,
                 email: formData.email,
                 phone: formData.phone,
-                title: formData.subject,
                 message: formData.message,
-                to_email: 'abhisplanet2025@gmail.com'
+                to_email: 'info@mountdiva.com'
             },
-            'zQ4O3aRATuQjHFFMg'
+            'QsuWbxMdTgVxpVuje'
+
         ).then(() => {
             setIsSubmitted(true);
             setIsSubmitting(false);
@@ -413,8 +414,17 @@ const LandingPage = () => {
                                             Delivering reliable MEP solutions with quality, efficiency, and integrity.
                                         </p>
                                         <div className="lbtn-group">
-                                            <button className="lbtn contact">Contact Us</button>
-                                            <button className="lbtn know">Know More</button>
+                                            {/* Contact Us with WhatsApp link */}
+                                            <a href="https://wa.me/971588188566" target="_blank" rel="noopener noreferrer">
+                                                <button className="lbtn contact">
+                                                    <FaWhatsapp className="licon" /> Contact Us
+                                                </button>
+                                            </a>
+
+                                            {/* Know More with arrow */}
+                                            <button className="lbtn know">
+                                                Know More <FaArrowRight className="licon" />
+                                            </button>
                                         </div>
                                     </div>
                                     <div className={`frame-outline ${animate ? "draw" : ""}`}>

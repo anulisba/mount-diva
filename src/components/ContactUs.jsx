@@ -40,16 +40,16 @@ const ContactSection = () => {
 
         emailjs
             .send(
-                'service_6c6do5l',
-                'template_4t6imcx',
+                'service_jee5dxn',
+                'template_7w33feq',
                 {
                     name: formData.name,
                     email: formData.email,
                     phone: formData.phone,
                     message: formData.message,
-                    to_email: 'abhisplanet2025@gmail.com'
+                    to_email: 'info@mountdiva.com'
                 },
-                'zQ4O3aRATuQjHFFMg'
+                'QsuWbxMdTgVxpVuje'
             )
             .then(() => {
                 setIsSubmitted(true);
@@ -301,7 +301,7 @@ const ContactSection = () => {
                                             <FaPhoneAlt />
                                         </div>
                                     </div>
-                                    <h4>(+876) 765 665</h4>
+                                    <h4>+971 42685661</h4>
                                     <p>Call us anytime during business hours for immediate assistance</p>
                                     <span className="card-footer">Mon-Fri: 9AM-6PM</span>
                                 </motion.div>
@@ -315,7 +315,7 @@ const ContactSection = () => {
                                             <FaEnvelope />
                                         </div>
                                     </div>
-                                    <h4>mail@influenca.id</h4>
+                                    <h4>info@mountdiva.com</h4>
                                     <p>Send us an email and we'll respond within 24 hours</p>
                                     <span className="card-footer">Response within 24h</span>
                                 </motion.div>
@@ -329,7 +329,7 @@ const ContactSection = () => {
                                             <FaMapMarkerAlt />
                                         </div>
                                     </div>
-                                    <h4>London Eye London</h4>
+                                    <h4>ALBAHAR Building, Al Khabeesi</h4>
                                     <p>Visit our office for a face-to-face consultation</p>
                                     <span className="card-footer">Open to visitors</span>
                                 </motion.div>
