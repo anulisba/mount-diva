@@ -40,103 +40,102 @@ import client17 from '../assets/client-logo/WhatsApp Image 2025-09-12 at 2.29.06
 import ContactLanding from './ContactLanding';
 const SplashScreen = ({ onComplete }) => {
     const [step, setStep] = useState(0);
+    const [showLogo, setShowLogo] = useState(false);
 
-    const companyName = "Abhi's   Planet";
-    const tagline = "Designing Spaces, Defining Lifestyles.";
-    const nameLetters = companyName.split('');
-    const taglineLetters = tagline.split('');
+    const companyName = "Mount Diva";
+    const tagline = "Since 2016";
 
     useEffect(() => {
-        const totalSteps = nameLetters.length + taglineLetters.length + 2;
+        const totalSteps = 4; // logo fade -> name scale -> tagline fade -> final delay
 
         const timer = setTimeout(() => {
-            if (step < totalSteps - 1) {
+            if (step < totalSteps) {
                 setStep(step + 1);
             } else {
-                // Final delay before exiting splash
                 setTimeout(() => {
                     onComplete();
-                }, 1000);
+                }, 1800);
             }
-        }, step < nameLetters.length ? 150 : 60); // Faster for tagline for smoother flow
+        }, step === 0 ? 600 : step === 1 ? 400 : step === 2 ? 300 : 1000);
+
+        // Show logo after name animation
+        if (step === 1) {
+            setShowLogo(true);
+        }
 
         return () => clearTimeout(timer);
-    }, [step, nameLetters.length, taglineLetters.length, onComplete]);
+    }, [step, onComplete]);
 
     return (
         <div className="splash-container">
             <div className="splash-content">
-                {/* Title Animation */}
-                <AnimatePresence>
-                    {step > nameLetters.length + taglineLetters.length && (
-                        <motion.div
-                            className="logo-container"
-                            initial={{ scale: 0.5, opacity: 0 }}
-                            animate={{
-                                scale: 1,
-                                opacity: 1,
-                                transition: {
-                                    duration: 0.8,
-                                    ease: [0.175, 0.885, 0.32, 1.275]
-                                }
-                            }}
-                            exit={{
-                                opacity: 0,
-                                scale: 0.9,
-                                transition: { duration: 0.4 }
-                            }}
-                        >
-                            <div className="logo-symbol"><img src={logo} /></div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-                <div className="name-container">
-                    {nameLetters.map((letter, index) => (
-                        <motion.span
-                            key={index}
-                            className="name-letter"
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{
-                                opacity: step > index ? 1 : 0,
-                                x: step > index ? 0 : -20
-                            }}
-                            transition={{
-                                duration: 0.4,
-                                ease: "easeOut"
-                            }}
-                        >
-                            {letter}
-                        </motion.span>
-                    ))}
+                {/* Animated Background Elements */}
+
+                {/* Main Content */}
+                <div className="content-wrapper">
+                    {/* Logo with modern reveal */}
+                    <motion.div
+                        className="logo-container"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{
+                            opacity: step >= 0 ? 1 : 0,
+                            scale: step >= 0 ? 1 : 0.8
+                        }}
+                        transition={{
+                            duration: 0.6,
+                            ease: "easeOut"
+                        }}
+                    >
+                        <div className="logo-wrapper">
+                            <img src={logo} alt="Mount Diva" className="logo-image" />
+                        </div>
+                    </motion.div>
+
+                    {/* Company Name with scale animation */}
+                    <motion.div
+                        className="name-container"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{
+                            opacity: step >= 1 ? 1 : 0,
+                            y: step >= 1 ? 0 : 20
+                        }}
+                        transition={{
+                            duration: 0.5,
+                            ease: "easeOut"
+                        }}
+                    >
+                        {companyName}
+                    </motion.div>
+
+                    {/* Tagline with fade animation */}
+                    <motion.div
+                        className="tagline-container"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: step >= 2 ? 1 : 0 }}
+                        transition={{
+                            duration: 0.4,
+                            ease: "easeOut",
+                            delay: step >= 2 ? 0.2 : 0
+                        }}
+                    >
+                        {tagline}
+                    </motion.div>
+
+                    {/* Loading indicator */}
+                    <motion.div
+                        className="loading-indicator"
+                        initial={{ width: 0 }}
+                        animate={{ width: step >= 3 ? "100%" : "0%" }}
+                        transition={{
+                            duration: 0.8,
+                            ease: "easeInOut"
+                        }}
+                    />
                 </div>
-
-                {/* Tagline Animation */}
-                {step > nameLetters.length && (
-                    <div className="tagline-container">
-                        {taglineLetters.map((letter, index) => {
-                            const show = step > nameLetters.length + index;
-                            return (
-                                <motion.span
-                                    key={index}
-                                    className="tagline-letter"
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: show ? 1 : 0 }}
-                                    transition={{ duration: 0.03 }}
-                                >
-                                    {letter}
-                                </motion.span>
-                            );
-                        })}
-                    </div>
-                )}
-
-                {/* Logo Animation */}
-
             </div>
         </div>
     );
 };
-
 
 const ContactPopup = ({ onClose }) => {
     const [formData, setFormData] = useState({
@@ -386,11 +385,12 @@ const LandingPage = () => {
 
     return (
         <div className="app-container">
-            <Header />
+
             <AnimatePresence mode="wait">
                 {showSplash ? (
                     <SplashScreen onComplete={handleSplashComplete} />
                 ) : (
+
                     <motion.div
                         className="landing-page-container"
                         initial={{ y: "100vh" }}
@@ -400,6 +400,7 @@ const LandingPage = () => {
                     >
                         {showContent && (
                             <>
+                                <Header />
 
                                 <section className="landing">
                                     <div className={`frame-outline ${animate ? "draw" : ""}`}></div>

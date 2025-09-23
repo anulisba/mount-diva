@@ -553,6 +553,31 @@
     background: #2563eb;
 }
 
+.contact-box-l {
+    position: relative;
+    background: #6e9cb4;
+    border-radius: 12px;
+    padding: 60px 40px;
+    width: 100%;
+    text-align: left;
+    overflow: hidden;
+    padding-left: 10px;
+    color: white;
+}
+
+.contact-text-l {
+    font-size: 2.8rem;
+    font-weight: bold;
+    opacity: 1;
+    transform: translateY(30px);
+    transition: all 1s ease;
+}
+
+.contact-text-l.fade-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Responsive */
 @media (max-width: 992px) {
     .form-newsletter-grid {

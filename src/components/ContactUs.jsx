@@ -264,11 +264,11 @@ const ContactSection = () => {
                                 </div>
                             </motion.div> */}
 
-                            <div className="contact-box">
-                                <h2 className="contact-text">
+                            <div className="contact-box-l">
+                                <h2 className="contact-text-l">
                                     Join multiple people <br /> who already trust us!
                                 </h2>
-                                <button className="contact-btn">Contact with us to know more</button>
+                                {/* <button className="contact-btn">Contact with us to know more</button> */}
 
                                 {/* Animated Circles */}
                                 <div className="circle circle1"></div>
