@@ -342,7 +342,7 @@
 }
 
 .values-card-back {
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    background: #07A9E5;
     color: white;
     transform: rotateY(180deg);
 }
@@ -371,7 +371,7 @@
 
 .value-icon {
     font-size: 2rem;
-    color: #3b82f6;
+    color: #07A9E5;
 }
 
 .values-card-front h3 {

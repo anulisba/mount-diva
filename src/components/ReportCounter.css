@@ -36,10 +36,10 @@
 }
 
 .report-counter-item p {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: white;
-    font-family: "Notable", serif;
-    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
     letter-spacing: 2px;
     font-style: normal;
 }
@@ -80,6 +80,6 @@
     }
 
     .report-counter-item p {
-        font-size: 1.2rem;
+        font-size: 1.8rem;
     }
 }

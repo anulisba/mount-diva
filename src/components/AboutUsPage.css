@@ -74,7 +74,7 @@
 .divider-line {
     width: 80px;
     height: 4px;
-    background: #0070c0;
+    background: #07A9E5;
     margin: 0 auto 40px;
 }
 
@@ -94,7 +94,7 @@
 
 .diagonal-bg {
     flex: 1;
-    background: #0070c0;
+    background: #07A9E5;
     color: white;
     padding: 80px 60px;
     clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
@@ -489,7 +489,7 @@
 .cvalue-card h4 {
     color: #002b5b;
     margin-bottom: 15px;
-    font-family: 'Noticia Text', serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .cvalue-card p {
@@ -621,7 +621,7 @@
 .cvalue-item h4 {
     color: #002b5b;
     margin-bottom: 15px;
-    font-family: 'Noticia Text', serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .cvalue-item p {

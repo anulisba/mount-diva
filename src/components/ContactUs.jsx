@@ -29,10 +29,10 @@ const ContactSection = () => {
     const handleNewsletterChange = (e) => {
         setNewsletterEmail(e.target.value);
     };
-    useEffect(() => {
-        const text = document.querySelector(".contact-text");
-        text.classList.add("fade-up");
-    }, []);
+    // useEffect(() => {
+    //     const text = document.querySelector(".contact-text");
+    //     text.classList.add("fade-up");
+    // }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -349,21 +349,14 @@ const ContactSection = () => {
                                 <div className="title-underline"></div>
                             </div>
                             <div className="map-container">
-                                <iframe
-                                    title="Google Map"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19802.23640134847!2d-0.1246261!3d51.5032978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900fb2f55%3A0xb64b7f6ecb8b67e4!2sLondon%20Eye!5e0!3m2!1sen!2suk!4v1634134534970!5m2!1sen!2suk"
-                                    width="100%"
-                                    height="400"
-                                    allowFullScreen=""
-                                    loading="lazy"
-                                ></iframe>
-                                <div className="map-overlay">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.954857267737!2d55.33494377538425!3d25.272103977662805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5cea68cbaa51%3A0xfbcf93226ea27caa!2sABDUL%20RAHAM%20AL%20BAHAR%20BUILDING!5e0!3m2!1sen!2sin!4v1758642181796!5m2!1sen!2sin" width="600" height="450" allowFullScreen="" loading="lazy"></iframe>
+                                {/* <div className="map-overlay">
                                     <div className="map-info">
                                         <h4>Our Location</h4>
                                         <p>London Eye, London, UK</p>
                                         <button className="directions-btn">Get Directions</button>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </motion.div>
                     </div>

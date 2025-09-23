@@ -246,11 +246,11 @@
 }
 
 .submit-btn {
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    background: linear-gradient(135deg, #07A9E5, #07A9E5);
     color: #ffffff;
     padding: 18px 40px;
     border: none;
-    border-radius: 12px;
+    border-radius: 15px;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
@@ -264,7 +264,7 @@
 }
 
 .submit-btn:hover {
-    background: linear-gradient(135deg, #2563eb, #1e40af);
+    background: linear-gradient(135deg, #07A9E5, #07A9E5);
     box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
 }
 
@@ -305,7 +305,7 @@
 
 .success-message h3 {
     font-size: 1.8rem;
-    color: #1e3a8a;
+    color: #07A9E5;
     margin-bottom: 15px;
 }
 
@@ -315,7 +315,7 @@
 }
 
 .back-to-form {
-    background: #3b82f6;
+    background: #07A9E5;
     color: white;
     border: none;
     padding: 12px 25px;
@@ -325,12 +325,12 @@
 }
 
 .back-to-form:hover {
-    background: #2563eb;
+    background: #07A9E5;
 }
 
 /* Newsletter */
 .newsletter-box {
-    background: linear-gradient(135deg, #3b82f6, #1e40af);
+    background: linear-gradient(135deg, #07A9E5, #07A9E5);
     padding: 40px 30px;
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(59, 130, 246, 0.2);
@@ -380,7 +380,7 @@
 
 .newsletter-btn {
     background: #ffffff;
-    color: #3b82f6;
+    color: #07A9E5;
     border: none;
     padding: 16px 30px;
     border-radius: 12px;
@@ -434,7 +434,7 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    background: linear-gradient(90deg, #07A9E5, #07A9E5);
 }
 
 .info-card:hover {
@@ -445,7 +445,7 @@
 .card-icon {
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    background: linear-gradient(135deg, #07A9E5, #07A9E5);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -479,7 +479,7 @@
 
 .info-card h4 {
     font-size: 1.3rem;
-    color: #1e3a8a;
+    color: #07A9E5;
     margin-bottom: 15px;
     font-weight: 600;
 }
@@ -491,7 +491,7 @@
 }
 
 .card-footer {
-    color: #3b82f6;
+    color: #07A9E5;
     font-weight: 600;
     font-size: 0.9rem;
 }
@@ -528,7 +528,7 @@
 }
 
 .map-info h4 {
-    color: #1e3a8a;
+    color: #07A9E5;
     margin-bottom: 10px;
     font-size: 1.2rem;
 }
@@ -539,7 +539,7 @@
 }
 
 .directions-btn {
-    background: #3b82f6;
+    background: #07A9E5;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -569,6 +569,8 @@
     font-size: 2.8rem;
     font-weight: bold;
     opacity: 1;
+    text-align: center;
+    margin: 0 30px;
     transform: translateY(30px);
     transition: all 1s ease;
 }

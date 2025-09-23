@@ -54,7 +54,7 @@ const SplashScreen = ({ onComplete }) => {
             } else {
                 setTimeout(() => {
                     onComplete();
-                }, 1800);
+                }, 800);
             }
         }, step === 0 ? 600 : step === 1 ? 400 : step === 2 ? 300 : 1000);
 

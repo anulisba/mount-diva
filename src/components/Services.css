@@ -88,9 +88,8 @@
     bottom: 30px;
     text-align: center;
     left: 50%;
-    font-weight: 400;
-    letter-spacing: 4px;
-    font-family: "Notable", serif;
+    font-weight: 900;
+    font-family: "Roboto", sans-serif;
     transform: translateX(-50%);
     color: white;
 }
