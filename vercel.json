@@ -1,8 +1,9 @@
 {
-    "rewrites": [
+    "redirects": [
         {
-            "source": "/(.*)",
-            "destination": "/"
+            "source": "/",
+            "destination": "https://www.mountdiva.com",
+            "permanent": true
         }
     ]
 }
