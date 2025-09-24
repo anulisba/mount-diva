@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import "./AboutUsPage.css";
 import bgImg from '../assets/1u.png'
@@ -22,6 +22,9 @@ import client16 from '../assets/client-logo/Untitled design (22).png';
 import client17 from '../assets/client-logo/WhatsApp Image 2025-09-12 at 2.29.06 PM.jpeg';
 import Footer from "./Footer";
 const AboutUsPage = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className="aboutus-page-container">
             <Header />

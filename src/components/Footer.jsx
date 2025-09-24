@@ -58,8 +58,9 @@ const Footer = () => {
                                         </svg>
                                         <div>
                                             <span className="contact-label">Office Address</span>
-                                            <span className="contact-value">P.O.BOX. 23302, Dubai, UAE</span>
-                                            <span className="contact-value">Office No-M 05, ALBAHAR Building, Al Khabeesi</span>
+                                            <span className="contact-value">Office No 203, Nawras Tower</span>
+                                            <span className="contact-value">Near Al Nahda Metro Station</span>
+                                            <span className="contact-value">Al Quisais, Dubai</span>
                                         </div>
                                     </li>
                                 </ul>
@@ -69,7 +70,7 @@ const Footer = () => {
                                 <nav className="footer-nav">
                                     <Link to="/" className="nav-link">Home</Link>
                                     <Link to="/about-us" className="nav-link">About Us</Link>
-                                    <Link to="/all-project" className="nav-link">Our Services</Link>
+                                    <Link to="/service-detail" className="nav-link">Our Services</Link>
                                     <Link to="/contact-us" className="nav-link">Contact</Link>
                                 </nav>
                             </div>

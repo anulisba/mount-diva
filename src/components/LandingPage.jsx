@@ -329,7 +329,9 @@ const LandingPage = () => {
     const contactus = () => {
         navigate('/contact-us')
     }
-
+    const handleKnowMore = () => {
+        navigate('/about-us');
+    }
     useEffect(() => {
         const hasSeenSplash = localStorage.getItem('hasSeenSplash');
         if (!hasSeenSplash) {
@@ -422,7 +424,7 @@ const LandingPage = () => {
                                             </a>
 
                                             {/* Know More with arrow */}
-                                            <button className="lbtn know">
+                                            <button className="lbtn know" onClick={handleKnowMore}>
                                                 Know More <FaArrowRight className="licon" />
                                             </button>
                                         </div>
