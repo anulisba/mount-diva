@@ -44,7 +44,8 @@ const AboutUsPage = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.2, duration: 0.8 }}
                     >
-                        Since 2016
+                        Crafting excellence in technical services and interior fit-out,
+                        with trusted expertise across the UAE.
                     </motion.p>
 
                 </div>

@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import bgImg from '../assets/1u.png';
 const OurServices = () => {
-    const serviceImages = ['https://res.cloudinary.com/dpo91btlc/image/upload/v1758444839/Untitled_design_9_buapq6.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758444839/Untitled_design_10_x6j8bb.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758444839/Untitled_design_11_bwekwu.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211246/Untitled_design_2_i4l5j7.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211245/Untitled_design_3_nlukvw.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211246/Untitled_design_1_md5qqz.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211245/Untitled_design_4_xvcpez.png'];
+    const serviceImages = ['https://res.cloudinary.com/dpo91btlc/image/upload/v1758969828/Untitled_design_16_pau0vh.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758444839/Untitled_design_9_buapq6.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758444839/Untitled_design_10_x6j8bb.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758444839/Untitled_design_11_bwekwu.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211246/Untitled_design_2_i4l5j7.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211246/Untitled_design_1_md5qqz.png', 'https://res.cloudinary.com/dpo91btlc/image/upload/v1758211245/Untitled_design_4_xvcpez.png'];
     const [activeIndex, setActiveIndex] = useState(0);
     return (
         <section id="service" className="service-section" style={{ backgroundImage: `url(${bgImg})` }}>
@@ -38,7 +38,7 @@ const OurServices = () => {
 
                     {serviceImages.map((img, index) => {
                         const isElevated = index === (activeIndex + 1) % serviceImages.length;
-                        const serviceNames = ["Management Services", "AMC services", "Painting & Decorating", "Annual Maintenance Contracts", "Maintenance on a Call-Out Basis", "Glass works and Aluminium works", "Interior Designing"];
+                        const serviceNames = ["Interior Fit-Out & Joinery", "Management Services", "AMC services", "Painting & Decorating", "Maintenance on a Call-Out Basis", "Glass works and Aluminium works", "Interior Designing"];
 
 
                         return (

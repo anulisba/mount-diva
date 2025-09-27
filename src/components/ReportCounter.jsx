@@ -7,7 +7,7 @@ import bgImg from '../assets/mountdiva-logo/bg-counter.png';
 const ReportCounter = () => {
     const stats = [
         { value: 4, label: 'Years of Experience' },
-        { value: 500, label: 'Projects Completed' },
+        { value: 300, label: 'Projects Completed' },
         { value: 100, label: 'Happy Clients' }
     ];
 

@@ -11,6 +11,26 @@ const ServiceDetail = () => {
     const services = [
         {
             id: 0,
+            name: "Interior Fit-Out & Joinery",
+            image: "https://res.cloudinary.com/dpo91btlc/image/upload/v1758969828/Untitled_design_16_pau0vh.png",
+            description: "Comprehensive interior fit-out and bespoke joinery solutions for residential, commercial, and retail spaces, blending functionality with aesthetics and craftsmanship.",
+            details: [
+                "Turnkey interior fit-out solutions",
+                "Custom-made furniture, doors, and cabinetry",
+                "Partitioning, ceiling, and flooring works",
+                "Wall treatments and decorative finishes",
+                "Tailored space planning and execution"
+            ],
+            workflow: [
+                "Client consultation and requirement analysis",
+                "Concept and design development",
+                "Material sourcing and preparation",
+                "On-site execution, installation, and finishing",
+                "Final handover with quality assurance"
+            ]
+        },
+        {
+            id: 1,
             name: "Management Services",
             image: "https://res.cloudinary.com/dpo91btlc/image/upload/v1758211588/Untitled_design_7_kdxdg3.png",
             description: "Our comprehensive management services ensure your property is maintained to the highest standards with regular inspections, vendor management, and quality control.",
@@ -30,7 +50,7 @@ const ServiceDetail = () => {
             ]
         },
         {
-            id: 1,
+            id: 2,
             name: "AMC Services",
             image: "https://res.cloudinary.com/dpo91btlc/image/upload/v1758211584/Untitled_design_6_mxnxvp.png",
             description: "Annual Maintenance Contracts provide peace of mind with scheduled maintenance, priority service, and cost predictability for all your property needs.",
@@ -50,7 +70,7 @@ const ServiceDetail = () => {
             ]
         },
         {
-            id: 2,
+            id: 3,
             name: "Painting & Decorating",
             image: "https://res.cloudinary.com/dpo91btlc/image/upload/v1758211584/Untitled_design_5_lrkizr.png",
             description: "Transform your space with our professional painting and decorating services, using high-quality materials and skilled craftsmen.",
@@ -69,26 +89,7 @@ const ServiceDetail = () => {
                 "Cleanup and final inspection"
             ]
         },
-        {
-            id: 3,
-            name: "Annual Maintenance Contracts",
-            image: "https://res.cloudinary.com/dpo91btlc/image/upload/v1758211246/Untitled_design_2_i4l5j7.png",
-            description: "Our comprehensive annual maintenance contracts ensure your property remains in optimal condition throughout the year with regular servicing and priority support.",
-            details: [
-                "Regular system inspections",
-                "Preventive maintenance scheduling",
-                "Priority response times",
-                "Discounted repair rates",
-                "24/7 emergency support"
-            ],
-            workflow: [
-                "Comprehensive property assessment",
-                "Customized maintenance plan",
-                "Scheduled service visits",
-                "Detailed reporting",
-                "Continuous plan optimization"
-            ]
-        },
+
         {
             id: 4,
             name: "Maintenance on a Call-Out Basis",
@@ -304,7 +305,7 @@ const ServiceDetail = () => {
             {/* Why Choose Us Section */}
             <section className="why-choose-service">
                 <div className="container">
-                    <h2 className="about-heading">Why Choose The Mount Diva Team for AMCs?</h2>
+                    <h2 className="about-heading">Why Choose The Mount Diva?</h2>
                     <div className="service-name-line"></div>
                     <div className="why-choose-content">
                         <p>

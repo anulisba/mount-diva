@@ -40,13 +40,13 @@ import client17 from '../assets/client-logo/WhatsApp Image 2025-09-12 at 2.29.06
 import ContactLanding from './ContactLanding';
 const SplashScreen = ({ onComplete }) => {
     const [step, setStep] = useState(0);
-    const [showLogo, setShowLogo] = useState(false);
+    const [showElements, setShowElements] = useState(false);
 
     const companyName = "Mount Diva";
-    const tagline = "Since 2016";
+    const tagline = "Fit-Out • Design • Maintenance";
 
     useEffect(() => {
-        const totalSteps = 4; // logo fade -> name scale -> tagline fade -> final delay
+        const totalSteps = 5;
 
         const timer = setTimeout(() => {
             if (step < totalSteps) {
@@ -54,13 +54,12 @@ const SplashScreen = ({ onComplete }) => {
             } else {
                 setTimeout(() => {
                     onComplete();
-                }, 800);
+                }, 600);
             }
-        }, step === 0 ? 600 : step === 1 ? 400 : step === 2 ? 300 : 1000);
+        }, step === 0 ? 800 : step === 1 ? 500 : step === 2 ? 400 : step === 3 ? 300 : 800);
 
-        // Show logo after name animation
         if (step === 1) {
-            setShowLogo(true);
+            setShowElements(true);
         }
 
         return () => clearTimeout(timer);
@@ -68,70 +67,120 @@ const SplashScreen = ({ onComplete }) => {
 
     return (
         <div className="splash-container">
-            <div className="splash-content">
-                {/* Animated Background Elements */}
+            {/* Subtle Background Pattern */}
+            <div className="background-pattern" />
 
-                {/* Main Content */}
-                <div className="content-wrapper">
-                    {/* Logo with modern reveal */}
-                    <motion.div
-                        className="logo-container"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{
-                            opacity: step >= 0 ? 1 : 0,
-                            scale: step >= 0 ? 1 : 0.8
-                        }}
-                        transition={{
-                            duration: 0.6,
-                            ease: "easeOut"
-                        }}
-                    >
-                        <div className="logo-wrapper">
+            {/* Architectural Grid Lines */}
+            {showElements && (
+                <div className="grid-lines">
+                    <div className="grid-line horizontal"></div>
+                    <div className="grid-line vertical"></div>
+                    <div className="grid-line diagonal-1"></div>
+                    <div className="grid-line diagonal-2"></div>
+                </div>
+            )}
+
+            {/* Geometric Elements representing construction/fitout */}
+            <div className="architectural-elements">
+                <motion.div
+                    className="element blueprint-square"
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 0.1, scale: 1 }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                />
+                <motion.div
+                    className="element blueprint-circle"
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 0.1, scale: 1 }}
+                    transition={{ duration: 1, delay: 0.7 }}
+                />
+                <motion.div
+                    className="element blueprint-triangle"
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 0.1, scale: 1 }}
+                    transition={{ duration: 1, delay: 0.9 }}
+                />
+            </div>
+
+            {/* Main Content */}
+            <div className="content-wrapper">
+                {/* Logo with professional reveal */}
+                <motion.div
+                    className="logo-container"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{
+                        opacity: step >= 0 ? 1 : 0,
+                        y: step >= 0 ? 0 : -20
+                    }}
+                    transition={{
+                        duration: 0.8,
+                        ease: "easeOut"
+                    }}
+                >
+                    <div className="logo-wrapper">
+                        <div className="logo-backdrop">
                             <img src={logo} alt="Mount Diva" className="logo-image" />
                         </div>
-                    </motion.div>
+                    </div>
+                </motion.div>
 
-                    {/* Company Name with scale animation */}
-                    <motion.div
-                        className="name-container"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{
-                            opacity: step >= 1 ? 1 : 0,
-                            y: step >= 1 ? 0 : 20
-                        }}
-                        transition={{
-                            duration: 0.5,
-                            ease: "easeOut"
-                        }}
-                    >
-                        {companyName}
-                    </motion.div>
+                {/* Company Name with professional typography */}
+                <motion.div
+                    className="name-container"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{
+                        opacity: step >= 1 ? 1 : 0,
+                        y: step >= 1 ? 0 : 10
+                    }}
+                    transition={{
+                        duration: 0.6,
+                        ease: "easeOut"
+                    }}
+                >
+                    {companyName}
+                </motion.div>
 
-                    {/* Tagline with fade animation */}
-                    <motion.div
-                        className="tagline-container"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: step >= 2 ? 1 : 0 }}
-                        transition={{
-                            duration: 0.4,
-                            ease: "easeOut",
-                            delay: step >= 2 ? 0.2 : 0
-                        }}
-                    >
-                        {tagline}
-                    </motion.div>
+                {/* Tagline emphasizing interior fitout expertise */}
+                <motion.div
+                    className="tagline-container"
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{
+                        opacity: step >= 2 ? 1 : 0,
+                        y: step >= 2 ? 0 : 5
+                    }}
+                    transition={{
+                        duration: 0.5,
+                        ease: "easeOut",
+                        delay: 0.2
+                    }}
+                >
+                    {tagline}
+                </motion.div>
 
-                    {/* Loading indicator */}
-                    <motion.div
-                        className="loading-indicator"
-                        initial={{ width: 0 }}
-                        animate={{ width: step >= 3 ? "100%" : "0%" }}
-                        transition={{
-                            duration: 0.8,
-                            ease: "easeInOut"
-                        }}
-                    />
-                </div>
+                {/* Progress indicator resembling architectural measurement */}
+                <motion.div
+                    className="progress-container"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: step >= 3 ? 1 : 0 }}
+                    transition={{ delay: 0.3 }}
+                >
+                    <div className="progress-indicator">
+                        <motion.div
+                            className="progress-bar"
+                            initial={{ scaleX: 0 }}
+                            animate={{ scaleX: step >= 4 ? 1 : 0 }}
+                            transition={{
+                                duration: 0.8,
+                                ease: "easeInOut"
+                            }}
+                        />
+                        <div className="progress-marks">
+                            {[...Array(5)].map((_, i) => (
+                                <div key={i} className="progress-mark" />
+                            ))}
+                        </div>
+                    </div>
+                </motion.div>
             </div>
         </div>
     );
@@ -308,8 +357,6 @@ const ContactPopup = ({ onClose }) => {
     );
 };
 
-
-
 const LandingPage = () => {
     const [showSplash, setShowSplash] = useState(false);
     const [showContent, setShowContent] = useState(false);
@@ -410,7 +457,7 @@ const LandingPage = () => {
 
                                     <div className={`landing-content ${animate ? "fade-in" : ""}`}>
                                         <h1>
-                                            Your Trusted Partner <br /> for Technical Services <br /> in UAE
+                                            Your Trusted Partner <br /> for Inertior Fit-Out & <br />Technical Services <br /> in UAE
                                         </h1>
                                         <p>
                                             Delivering reliable MEP solutions with quality, efficiency, and integrity.

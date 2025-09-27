@@ -34,13 +34,7 @@ const AboutUs = () => {
                     <h2 className="about-heading">Excellence You Can Trust</h2>
                     <div className="service-name-line"></div>
                     <p className="about-description">
-                        Mount Diva Technical Services L.L.C is a UAE-based company providing
-                        reliable technical and MEP solutions with integrity, efficiency, and
-                        innovation. Backed by a skilled multinational team, we deliver
-                        cost-effective results with speed and precision while maintaining
-                        the highest standards. Committed to excellence and professionalism,
-                        we focus on building lasting client relationships and creating value
-                        for our customers, partners, and community.
+                        Mount Diva Technical Services L.L.C is a UAE-based company providing reliable Interior Fit-Out, Technical, and MEP solutions with integrity, efficiency, and innovation. Backed by a skilled multinational team, we deliver cost-effective results with speed and precision while maintaining the highest standards. Committed to excellence and professionalism, we focus on building lasting client relationships and creating value for our customers, partners, and community.
                     </p>
 
                     <div className="about-btn-container">
