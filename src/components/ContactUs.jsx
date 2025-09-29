@@ -38,30 +38,30 @@ const ContactSection = () => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        emailjs
-            .send(
-                'service_jee5dxn',
-                'template_7w33feq',
-                {
-                    name: formData.name,
-                    email: formData.email,
-                    phone: formData.phone,
-                    message: formData.message,
-                    to_email: 'info@mountdiva.com'
-                },
-                'QsuWbxMdTgVxpVuje'
-            )
-            .then(() => {
-                setIsSubmitted(true);
-                setIsSubmitting(false);
-                setFormData({ name: '', email: '', phone: '', message: '' });
-            })
-            .catch((error) => {
-                console.error('Failed to send message:', error);
-                setIsSubmitting(false);
-                alert('Failed to send message. Please try again later.');
-            });
+        const whatsappNumber = "971588188566"; // Your WhatsApp number with country code (no + or spaces)
+        const textMessage = `New Contact Form Submission:
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Subject: ${formData.subject}
+Message: ${formData.message}`;
+
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(textMessage)}`;
+        window.open(whatsappURL, "_blank");
+
+        setIsSubmitted(true);
+        setIsSubmitting(false);
+
+        // Reset form fields
+        setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            subject: '',
+            message: ''
+        });
     };
+
 
     return (
         <>

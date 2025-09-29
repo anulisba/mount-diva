@@ -203,34 +203,58 @@ const ContactPopup = ({ onClose }) => {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     setIsSubmitting(true);
+
+    //     emailjs.send(
+
+    //         'service_jee5dxn',
+    //         'template_7w33feq',
+    //         {
+    //             name: formData.name,
+    //             email: formData.email,
+    //             phone: formData.phone,
+    //             message: formData.message,
+    //             to_email: 'info@mountdiva.com'
+    //         },
+    //         'QsuWbxMdTgVxpVuje'
+
+    //     ).then(() => {
+    //         setIsSubmitted(true);
+    //         setIsSubmitting(false);
+    //         setTimeout(() => {
+    //             onClose();
+    //         }, 3000);
+    //     }).catch((error) => {
+    //         console.error('Failed to send message:', error);
+    //         setIsSubmitting(false);
+    //         alert('Failed to send message. Please try again later.');
+    //     });
+    // };
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        emailjs.send(
+        // const whatsappNumber = "971588188566"; // Your WhatsApp number with country code
+        const whatsappNumber = "971588188566";
+        const textMessage = `New Contact Form Submission:
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Subject: ${formData.subject}
+Message: ${formData.message}`;
 
-            'service_jee5dxn',
-            'template_7w33feq',
-            {
-                name: formData.name,
-                email: formData.email,
-                phone: formData.phone,
-                message: formData.message,
-                to_email: 'info@mountdiva.com'
-            },
-            'QsuWbxMdTgVxpVuje'
+        // Redirect to WhatsApp
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(textMessage)}`;
+        window.open(whatsappURL, "_blank");
 
-        ).then(() => {
-            setIsSubmitted(true);
-            setIsSubmitting(false);
-            setTimeout(() => {
-                onClose();
-            }, 3000);
-        }).catch((error) => {
-            console.error('Failed to send message:', error);
-            setIsSubmitting(false);
-            alert('Failed to send message. Please try again later.');
-        });
+        setIsSubmitted(true);
+        setIsSubmitting(false);
+
+        setTimeout(() => {
+            onClose();
+        }, 3000);
     };
 
     return (
@@ -362,7 +386,24 @@ const LandingPage = () => {
     const [showContent, setShowContent] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showPopup, setShowPopup] = useState(false);
-    const images = [bg1, bg2, bg3];
+    const slides = [
+        {
+            image: bg1,
+            title: "Your Trusted Partner for Interior Fit-Out & Technical Services in UAE",
+            subtitle: "Delivering reliable MEP solutions with quality, efficiency, and integrity."
+        },
+        {
+            image: bg2,
+            title: "Building Excellence, One Project at a Time",
+            subtitle: "Innovative designs and top-notch technical expertise for your business."
+        },
+        {
+            image: bg3,
+            title: "Where Vision Meets Execution",
+            subtitle: "Transforming spaces into functional, modern, and sustainable environments."
+        }
+    ];
+
     const [animate, setAnimate] = useState(false);
 
     useEffect(() => {
@@ -391,16 +432,15 @@ const LandingPage = () => {
 
     useEffect(() => {
         if (!showSplash) {
-            // Set showContent to true only when splash screen is hidden
             setShowContent(true);
-
             const interval = setInterval(() => {
-                setCurrentIndex((prev) => (prev + 1) % images.length);
-            }, 5000);
+                setCurrentIndex((prev) => (prev + 1) % slides.length);
+            }, 3000); // 3 seconds
 
             return () => clearInterval(interval);
         }
     }, [showSplash]);
+
 
     useEffect(() => {
         if (showContent) {
