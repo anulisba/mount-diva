@@ -48,6 +48,7 @@ const Footer = () => {
                                         </svg>
                                         <div>
                                             <span className="contact-label">Phone</span>
+                                            <span className="contact-value">Mob: +971 504825661</span>
                                             <span className="contact-value">Mob: +971 42685661</span>
                                             <span className="contact-value">Mob: +971 588188566</span>
                                         </div>

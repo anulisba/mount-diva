@@ -302,6 +302,7 @@ Message: ${formData.message}`;
                                         </div>
                                     </div>
                                     <h4>+971 42685661</h4>
+                                    <h4>+971 504825661</h4>
                                     <p>Call us anytime during business hours for immediate assistance</p>
                                     <span className="card-footer">Mon-Fri: 9AM-6PM</span>
                                 </motion.div>
